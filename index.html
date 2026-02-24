@@ -4,33 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoLocate | Smart Navigation</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">EcoLocate</div>
+        <div class="logo">EcoLocate<span class="dot">.</span></div>
         <nav>
             <a href="#about">About</a>
             <a href="#features">Features</a>
+            <a href="YOUR_ADMIN_LINK_HERE" class="admin-btn">Admin Dashboard</a>
         </nav>
     </header>
 
     <section id="hero">
-        <h1>Navigate Smarter with EcoLocate</h1>
-        <p>Discover and map your world efficiently.</p>
-        <a href="#download" class="cta-button">Get the App</a>
+        <div class="hero-content">
+            <h1>Navigate smarter with <span class="highlight">EcoLocate</span></h1>
+            <p>Your ultimate companion for mapping and discovering your environment efficiently.</p>
+            <div class="button-group">
+                <a href="#download" class="cta-button">Download App</a>
+                <a href="#features" class="secondary-button">Explore Features</a>
+            </div>
+        </div>
     </section>
 
-    <section id="about">
-        <h2>What is EcoLocate?</h2>
-        <p>A brief description of your mobile and web application goes here.</p>
+    <section id="features">
+        <div class="section-title">
+            <h2>Why Choose EcoLocate?</h2>
+            <p>Seamlessly integrated across mobile and web platforms.</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="feature-card">
+                <i class='bx bx-mobile-alt'></i>
+                <h3>Mobile Application</h3>
+                <p>Track locations, interact with the map, and navigate on the go with our intuitive mobile interface.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class='bx bx-laptop'></i>
+                <h3>Web Admin Panel</h3>
+                <p>Manage users, oversee data, and control the ecosystem from a powerful, centralized web dashboard.</p>
+            </div>
+            
+            <div class="feature-card">
+                <i class='bx bx-map-alt'></i>
+                <h3>Interactive Mapping</h3>
+                <p>Experience gamified, real-time location mapping designed to make exploration engaging and accurate.</p>
+            </div>
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2026 EcoLocate. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
