@@ -238,18 +238,25 @@ nav a:hover {
 .tree-card {
     background: var(--white);
     border-radius: 16px;
-    overflow: hidden; 
+    /* overflow: hidden; has been REMOVED so tooltips can float freely */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--card-border);
     transition: all 0.3s ease;
     text-align: left;
     display: flex;
     flex-direction: column;
+    
+    /* ADDED: Locks this card into a stacking context */
+    position: relative;
+    z-index: 1;
 }
 
 .tree-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    /* ADDED: Forces the hovered card above all adjacent cards */
+    z-index: 50; 
 }
 
 .tree-image {
@@ -257,6 +264,7 @@ nav a:hover {
     height: 220px;
     object-fit: cover; 
     border-bottom: 3px solid var(--primary);
+    border-radius: 16px 16px 0 0;
 }
 
 .tree-info {
@@ -303,11 +311,10 @@ nav a:hover {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    position: relative; /* Needed for tooltips */
+    position: relative; 
     cursor: help;
 }
 
-/* Tooltip text bubble */
 .badge::after {
     content: attr(data-tooltip);
     position: absolute;
@@ -320,21 +327,26 @@ nav a:hover {
     border-radius: 6px;
     font-size: 0.7rem;
     font-weight: 400;
-    white-space: nowrap;
+    
+    max-width: 180px;
+    width: max-content;
+    text-align: center;
+    line-height: 1.4;
+    
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, bottom 0.3s ease;
-    z-index: 10;
-    pointer-events: none; /* Prevents flickering */
+    z-index: 100; /* Ensured this is nice and high */
+    pointer-events: none; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-transform: none; /* Keeps tooltip text normal case */
+    text-transform: none; 
     letter-spacing: normal;
 }
 
 .badge:hover::after {
     opacity: 1;
     visibility: visible;
-    bottom: 135%; /* Slides up slightly on hover */
+    bottom: 135%; 
 }
 
 /* Badge Color Variations */
@@ -452,7 +464,7 @@ footer {
 
 @media (max-width: 1024px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
+        grid-template-columns: repeat(2, 1fr); 
     }
 }
 
@@ -475,6 +487,6 @@ footer {
         font-size: 2.5rem;
     }
     .card-container {
-        grid-template-columns: 1fr; /* 1 card per row on mobile */
+        grid-template-columns: 1fr; 
     }
 }
