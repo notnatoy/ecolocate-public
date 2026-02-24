@@ -20,6 +20,21 @@ body.dark-theme {
     --glass-bg: rgba(15, 23, 42, 0.85); 
 }
 
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -101,7 +116,7 @@ nav a:hover {
 
 /* --- Hero Section --- */
 #hero {
-    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('hero-bg.jpg');
+    background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), url('tree_images/hero-bg.jpg');
     background-size: cover;
     background-position: center 15%; 
     background-repeat: no-repeat;
@@ -120,7 +135,7 @@ nav a:hover {
 
 #hero h1 {
     font-size: 4rem;
-    color: #ffffff; /* Forced white for readability against background */
+    color: #ffffff; 
     line-height: 1.2;
     margin-bottom: 1.5rem;
     font-weight: 700;
@@ -161,7 +176,7 @@ nav a:hover {
 /* --- Tree Directory Section --- */
 #tree-directory {
     padding: 8rem 5%;
-    max-width: 1400px;
+    max-width: 1400px; /* Comfortably fits 4 cards */
     margin: 0 auto;
 }
 
@@ -215,8 +230,8 @@ nav a:hover {
 /* --- Tree Card Container --- */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(4, 1fr); /* Forces exactly 4 columns */
+    gap: 2rem;
 }
 
 /* --- Tree Card Styling --- */
@@ -273,7 +288,7 @@ nav a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* --- Status Badges --- */
+/* --- Status Badges & Tooltips --- */
 .badge-container {
     display: flex;
     flex-wrap: wrap;
@@ -288,6 +303,38 @@ nav a:hover {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative; /* Needed for tooltips */
+    cursor: help;
+}
+
+/* Tooltip text bubble */
+.badge::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    z-index: 10;
+    pointer-events: none; /* Prevents flickering */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-transform: none; /* Keeps tooltip text normal case */
+    letter-spacing: normal;
+}
+
+.badge:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: 135%; /* Slides up slightly on hover */
 }
 
 /* Badge Color Variations */
@@ -301,7 +348,7 @@ nav a:hover {
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: var(--dark); /* Uses standard dark variable so it blends in dark mode */
+    background-color: var(--dark);
     color: var(--gray);
     font-size: 0.9rem;
 }
@@ -354,7 +401,7 @@ footer {
 }
 
 .store-btn {
-    background-color: var(--dark); /* Maps cleanly to dark mode */
+    background-color: var(--dark); 
     color: var(--white);
     padding: 1rem 2rem;
     text-decoration: none;
@@ -385,20 +432,30 @@ footer {
     font-style: italic;
 }
 
+/* --- Reveal on Scroll Animation --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* --- Animations & Responsive --- */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tablet screens: Drop to 2 cards per row */
 @media (max-width: 1024px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
     }
 }
 
-/* Mobile screens: Drop to 1 card per row */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -418,6 +475,6 @@ footer {
         font-size: 2.5rem;
     }
     .card-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 card per row on mobile */
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoLocate | Local Flora Database</title>
+    <title>EcoLocate</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -34,12 +34,12 @@
     </section>
 
     <section id="tree-directory">
-        <div class="section-title">
+        <div class="section-title reveal">
             <h2>Trees</h2>
             <p>Information sourced directly from the EcoLocate mapping system.</p>
         </div>
         
-        <div class="filter-container">
+        <div class="filter-container reveal">
             <button class="filter-btn active" data-filter="all">All Trees</button>
             <button class="filter-btn" data-filter="native">Native</button>
             <button class="filter-btn" data-filter="fruit">Fruit-Bearing</button>
@@ -48,8 +48,8 @@
         
         <div class="card-container">
             
-            <div class="tree-card" data-category="native vulnerable">
-                <img src="narra.png" alt="Narra Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Narra+Tree'">
+            <div class="tree-card reveal" data-category="native vulnerable">
+                <img src="tree_images/narra.png" alt="Narra Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Narra+Tree'">
                 <div class="tree-info">
                     <h3>Narra</h3>
                     <span class="scientific-name">Pterocarpus indicus</span>
@@ -58,14 +58,14 @@
                     <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
                     
                     <div class="badge-container">
-                        <span class="badge native">Native</span>
-                        <span class="badge vulnerable">Vulnerable</span>
+                        <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
+                        <span class="badge vulnerable" data-tooltip="At high risk of endangerment in the wild">Vulnerable</span>
                     </div>
                 </div>
             </div>
             
-            <div class="tree-card" data-category="widespread fruit">
-                <img src="coconut.jpeg" alt="Coconut Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Coconut+Tree'">
+            <div class="tree-card reveal" data-category="widespread fruit">
+                <img src="tree_images/coconut.jpeg" alt="Coconut Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Coconut+Tree'">
                 <div class="tree-info">
                     <h3>Coconut Tree</h3>
                     <span class="scientific-name">Cocos nucifera</span>
@@ -74,15 +74,14 @@
                     <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
                     
                     <div class="badge-container">
-                        <span class="badge widespread">Widespread</span>
-                        <span class="badge fruit">Fruit-Bearing</span>
+                        <span class="badge widespread" data-tooltip="Found commonly across various habitats">Widespread</span>
+                        <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
                     </div>
                 </div>
             </div>
-            
 
-            <div class="tree-card" data-category="widespread fruit native">
-                <img src="mango.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
+            <div class="tree-card reveal" data-category="widespread fruit native">
+                <img src="tree_images/mango.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
                 <div class="tree-info">
                     <h3>Mango Tree</h3>
                     <span class="scientific-name">Mangifera indica</span>
@@ -91,8 +90,8 @@
                     <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
                     
                     <div class="badge-container">
-                        <span class="badge native">Native</span>
-                        <span class="badge fruit">Fruit-Bearing</span>
+                        <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
+                        <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
                     </div>
                 </div>
             </div>
@@ -101,7 +100,7 @@
     </section>
 
    <section id="download" class="cta-banner">
-        <div class="banner-content">
+        <div class="banner-content reveal">
             <h2>Want to see more?</h2>
             <p>Download the EcoLocate mobile application to explore complete tree profiles, track exact geographical coordinates, and interact with the live map.</p>
             
@@ -137,8 +136,12 @@
 
                     if (filterValue === 'all' || categories.includes(filterValue)) {
                         card.style.display = 'flex'; 
+                        // Re-trigger animation when filtered
+                        card.classList.remove('active');
+                        setTimeout(() => card.classList.add('active'), 50);
                     } else {
                         card.style.display = 'none'; 
+                        card.classList.remove('active');
                     }
                 });
             });
@@ -157,6 +160,23 @@
                 themeIcon.classList.replace('bx-sun', 'bx-moon');
             }
         });
+
+        // Scroll Reveal Animation Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15, // Trigger when 15% of the element is visible
+            rootMargin: "0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
