@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoLocate | Smart Navigation</title>
+    <title>EcoLocate | Local Flora Database</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <link rel="stylesheet" href="style.css">
@@ -13,55 +13,150 @@
 <body>
 
     <header>
-        <div class="logo">EcoLocate<span class="dot">.</span></div>
+        <div class="logo">EcoLocate<span class="dot">.</span> Flora</div>
         <nav>
-            <a href="#about">About</a>
-            <a href="#features">Features</a>
-            <a href="YOUR_ADMIN_LINK_HERE" class="admin-btn">Admin Dashboard</a>
+            <a href="#hero">Home</a>
+            <a href="#tree-directory">Trees</a>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                <i class='bx bx-moon'></i>
+            </button>
         </nav>
     </header>
 
     <section id="hero">
         <div class="hero-content">
-            <h1>Navigate smarter with <span class="highlight">EcoLocate</span></h1>
-            <p>Your ultimate companion for mapping and discovering your environment efficiently.</p>
+            <h1>Discover Our <span class="highlight">Local Flora</span></h1>
+            <p>Explore the diverse tree species mapped and monitored across our environment.</p>
             <div class="button-group">
-                <a href="#download" class="cta-button">Download App</a>
-                <a href="#features" class="secondary-button">Explore Features</a>
+                <a href="#tree-directory" class="cta-button">Browse Trees</a>
             </div>
         </div>
     </section>
 
-    <section id="features">
+    <section id="tree-directory">
         <div class="section-title">
-            <h2>Why Choose EcoLocate?</h2>
-            <p>Seamlessly integrated across mobile and web platforms.</p>
+            <h2>Trees</h2>
+            <p>Information sourced directly from the EcoLocate mapping system.</p>
+        </div>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All Trees</button>
+            <button class="filter-btn" data-filter="native">Native</button>
+            <button class="filter-btn" data-filter="fruit">Fruit-Bearing</button>
+            <button class="filter-btn" data-filter="vulnerable">Vulnerable</button>
         </div>
         
         <div class="card-container">
-            <div class="feature-card">
-                <i class='bx bx-mobile-alt'></i>
-                <h3>Mobile Application</h3>
-                <p>Track locations, interact with the map, and navigate on the go with our intuitive mobile interface.</p>
+            
+            <div class="tree-card" data-category="native vulnerable">
+                <img src="narra.png" alt="Narra Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Narra+Tree'">
+                <div class="tree-info">
+                    <h3>Narra</h3>
+                    <span class="scientific-name">Pterocarpus indicus</span>
+                    <p>Known for its durable hardwood and beautiful yellow flowers. It is widely planted for shade and environmental restoration.</p>
+                    
+                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                    
+                    <div class="badge-container">
+                        <span class="badge native">Native</span>
+                        <span class="badge vulnerable">Vulnerable</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="feature-card">
-                <i class='bx bx-laptop'></i>
-                <h3>Web Admin Panel</h3>
-                <p>Manage users, oversee data, and control the ecosystem from a powerful, centralized web dashboard.</p>
+            <div class="tree-card" data-category="widespread fruit">
+                <img src="coconut.jpeg" alt="Coconut Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Coconut+Tree'">
+                <div class="tree-info">
+                    <h3>Coconut Tree</h3>
+                    <span class="scientific-name">Cocos nucifera</span>
+                    <p>Often referred to as the "tree of life" due to its highly versatile uses, providing food, fuel, and building materials.</p>
+
+                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                    
+                    <div class="badge-container">
+                        <span class="badge widespread">Widespread</span>
+                        <span class="badge fruit">Fruit-Bearing</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="feature-card">
-                <i class='bx bx-map-alt'></i>
-                <h3>Interactive Mapping</h3>
-                <p>Experience gamified, real-time location mapping designed to make exploration engaging and accurate.</p>
+
+            <div class="tree-card" data-category="widespread fruit native">
+                <img src="mango.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
+                <div class="tree-info">
+                    <h3>Mango Tree</h3>
+                    <span class="scientific-name">Mangifera indica</span>
+                    <p>A large, long-living fruit tree native to tropical regions. It is highly valued for its sweet fruit and dense, expansive shade.</p>
+                    
+                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                    
+                    <div class="badge-container">
+                        <span class="badge native">Native</span>
+                        <span class="badge fruit">Fruit-Bearing</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
+   <section id="download" class="cta-banner">
+        <div class="banner-content">
+            <h2>Want to see more?</h2>
+            <p>Download the EcoLocate mobile application to explore complete tree profiles, track exact geographical coordinates, and interact with the live map.</p>
+            
+            <div class="store-buttons">
+                <a href="https://drive.google.com/uc?export=download&id=1JAeKjOL49_Z6J5IX85TAFvv0qEu8kZD1" target="_blank" rel="noopener noreferrer" class="store-btn">
+                    <i class='bx bxl-android'></i> Download Android APK
+                </a>
+            </div>
+            
+            <p class="apk-note">Note: You may need to enable "Install from unknown sources" in your device settings to install the application.</p>
+        </div>
+    </section>
+    
     <footer>
         <p>&copy; 2026 EcoLocate. All rights reserved.</p>
     </footer>
 
+    <script>
+        // Tag Filter Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const treeCards = document.querySelectorAll('.tree-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+
+                treeCards.forEach(card => {
+                    const categories = card.getAttribute('data-category');
+                    if (!categories) return; 
+
+                    if (filterValue === 'all' || categories.includes(filterValue)) {
+                        card.style.display = 'flex'; 
+                    } else {
+                        card.style.display = 'none'; 
+                    }
+                });
+            });
+        });
+
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            
+            if(document.body.classList.contains('dark-theme')) {
+                themeIcon.classList.replace('bx-moon', 'bx-sun');
+            } else {
+                themeIcon.classList.replace('bx-sun', 'bx-moon');
+            }
+        });
+    </script>
 </body>
 </html>
