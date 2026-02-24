@@ -1,0 +1,169 @@
+/* --- Base Variables & Reset --- */
+:root {
+    --primary-green: #2E7D32; /* Deep forest green */
+    --light-green: #E8F5E9;   /* Soft mint background */
+    --accent-green: #4CAF50;  /* Brighter green for hovers */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    color: var(--text-dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* --- Header & Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-green);
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    margin-left: 2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--primary-green);
+}
+
+/* Special styling for the Admin Login button */
+.admin-btn {
+    background-color: var(--primary-green);
+    color: var(--white) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-btn:hover {
+    background-color: var(--accent-green);
+}
+
+/* --- Hero Section --- */
+#hero {
+    /* The linear-gradient adds a dark overlay so your white text pops */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    text-align: center;
+    padding: 8rem 5%;
+    min-height: 70vh; /* Made slightly taller to show off the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    color: var(--white); /* Changed to white for contrast */
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Adds a subtle drop shadow to text */
+}
+
+#hero p {
+    font-size: 1.25rem;
+    color: #e0e0e0; /* Light gray/white for readability */
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* Main Call to Action Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-green);
+    color: var(--white);
+    padding: 0.8rem 2.5rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(46, 125, 50, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-green);
+    transform: translateY(-2px);
+}
+
+/* --- About Section --- */
+#about {
+    padding: 6rem 5%;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about h2 {
+    color: var(--primary-green);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+#about p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-top: 1px solid #eeeeee;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem 5%;
+    }
+    
+    nav a {
+        margin: 0 0.8rem;
+        font-size: 0.95rem;
+    }
+    
+    #hero {
+        padding: 5rem 5%;
+    }
+
+    #hero h1 {
+        font-size: 2.2rem;
+    }
+}
