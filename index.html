@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agri-Eco Tourism Park - Flora</title>
+    <title>EcoLocate</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -13,7 +13,7 @@
 <body>
 
     <header>
-        <div class="logo"> <img src="tree_images/ecopark.png" >Agri-Eco Tourism Park<span class="dot">.</span> Flora</div>
+        <div class="logo"> <img src="tree_images/ecopark.png">Agri-Eco Tourism Park</div>
         <nav>
             <a href="#hero">Home</a>
             <a href="#tree-directory">Trees</a>
@@ -34,95 +34,148 @@
     </section>
 
     <section id="tree-directory">
+        <div class="directory-switch reveal">
+            <button class="switch-btn active" data-view="trees">
+                <i class='bx bx-leaf'></i> Trees
+            </button>
+            <button class="switch-btn" data-view="landmarks">
+                <i class='bx bx-map-alt'></i> Landmarks
+            </button>
+        </div>
+
         <div class="section-title reveal">
-            <h2>Trees</h2>
-            <p>Information sourced directly from the EcoLocate mapping system.</p>
+            <h2 id="view-title">Trees</h2>
+            <p id="view-desc">Information sourced directly from the EcoLocate mapping system.</p>
         </div>
-        
-        <div class="filter-container reveal">
-            <button class="filter-btn active" data-filter="all">All Trees</button>
-            <button class="filter-btn" data-filter="native">Native</button>
-            <button class="filter-btn" data-filter="fruit">Fruit-Bearing</button>
-            <button class="filter-btn" data-filter="vulnerable">Vulnerable</button>
-        </div>
-        
-        <div class="card-container">
-            
-            <div class="tree-card reveal" data-category="native vulnerable">
-                <img src="tree_images/narra.png" alt="Narra Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Narra+Tree'">
-                <div class="tree-info">
-                    <h3>Narra</h3>
-                    <span class="scientific-name">Pterocarpus indicus</span>
-                    
-                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
-                    
-                    <div class="badge-container">
-                        <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
-                        <span class="badge vulnerable" data-tooltip="At high risk of endangerment in the wild">Vulnerable</span>
-                    </div>
-                </div>
+
+        <div id="tree-view-content">
+            <div class="filter-container reveal">
+                <button class="filter-btn active" data-filter="all">All Trees</button>
+                <button class="filter-btn" data-filter="native">Native</button>
+                <button class="filter-btn" data-filter="fruit">Fruit-Bearing</button>
+                <button class="filter-btn" data-filter="vulnerable">Vulnerable</button>
             </div>
             
-            <div class="tree-card reveal" data-category="widespread fruit">
-                <img src="tree_images/coconut.jpeg" alt="Coconut Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Coconut+Tree'">
-                <div class="tree-info">
-                    <h3>Coconut Tree</h3>
-                    <span class="scientific-name">Cocos nucifera</span>
+            <div class="card-container">
+            
+                <div class="tree-card reveal" data-category="native vulnerable">
+                    <img src="tree_images/narra.png" alt="Narra Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Narra+Tree'">
+                    <div class="tree-info">
+                        <h3>Narra</h3>
+                        <span class="scientific-name">Pterocarpus indicus</span>
+                        <p>Known for its durable hardwood and beautiful yellow flowers. It is widely planted for shade and environmental restoration.</p>
+                        
+                        <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                        
+                        <div class="badge-container">
+                            <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
+                            <span class="badge vulnerable" data-tooltip="At high risk of endangerment in the wild">Vulnerable</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tree-card reveal" data-category="widespread fruit">
+                    <img src="tree_images/coconut.jpeg" alt="Coconut Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Coconut+Tree'">
+                    <div class="tree-info">
+                        <h3>Coconut Tree</h3>
+                        <span class="scientific-name">Cocos nucifera</span>
+                        <p>Often referred to as the "tree of life" due to its highly versatile uses, providing food, fuel, and building materials.</p>
 
-                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
-                    
-                    <div class="badge-container">
-                        <span class="badge widespread" data-tooltip="Found commonly across various habitats">Widespread</span>
-                        <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
+                        <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                        
+                        <div class="badge-container">
+                            <span class="badge widespread" data-tooltip="Found commonly across various habitats">Widespread</span>
+                            <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tree-card reveal" data-category="widespread fruit native">
+                    <img src="tree_images/mango.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
+                    <div class="tree-info">
+                        <h3>Mango Tree</h3>
+                        <span class="scientific-name">Mangifera indica</span>
+                        <p>A large, long-living fruit tree native to tropical regions. It is highly valued for its sweet fruit and dense, expansive shade.</p>
+                        
+                        <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                        
+                        <div class="badge-container">
+                            <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
+                            <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tree-card reveal" data-category="widespread fruit native">
+                    <img src="tree_images/jackfruit.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
+                    <div class="tree-info">
+                        <h3>Jackfruit</h3>
+                        <span class="scientific-name">Mangifera indica</span>
+                        <p>Jackfruit trees are large, providing shade and food security, making them important in both ecological and economic contexts.</p>
+                        
+                        <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
+                        
+                        <div class="badge-container">
+                            <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
+                            <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="tree-card reveal" data-category="widespread fruit native">
-                <img src="tree_images/mango.jpg" alt="Mango Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Mango+Tree'">
-                <div class="tree-info">
-                    <h3>Mango Tree</h3>
-                    <span class="scientific-name">Mangifera indica</span>
-                    
-                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
-                    
-                    <div class="badge-container">
-                        <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
-                        <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
+        <div id="landmark-view-content" class="hidden">
+            <div class="card-container">
+                <div class="tree-card reveal"> 
+                    <img src="tree_images/hero-bg.jpg" alt="Statue" class="tree-image">
+                    <div class="tree-info">
+                        <h3>Inang Kalikasan</h3>
+                        <p>A symbolic sculpture and concept of Cavite State University.</p>
+                        <a href="#download" class="app-tease-link">View location on map &rarr;</a>
+                    </div>
+                </div>
+            
+                <div class="tree-card reveal"> 
+                    <img src="tree_images/hagdan.jpg" alt="Statue" class="tree-image">
+                    <div class="tree-info">
+                        <h3>Hagdan ng Kasaysayan</h3>
+                        <p>A historic stairway with 100 steps that reflects a chapter in the institution’s growth and transformation.</p>
+                        <a href="#download" class="app-tease-link">View location on map &rarr;</a>
+                    </div>
+                </div>
+            
+                <div class="tree-card reveal"> 
+                    <img src="tree_images/kubo.jpg" alt="Statue" class="tree-image">
+                    <div class="tree-info">
+                        <h3>Kapihan sa Kubo</h3>
+                        <p>A serene coffee spot perfect for relaxation and reflection.</p>
+                        <a href="#download" class="app-tease-link">View location on map &rarr;</a>
+                    </div>
+                </div>
+            
+                <div class="tree-card reveal"> 
+                    <img src="tree_images/tulay.jpg" alt="Statue" class="tree-image">
+                    <div class="tree-info">
+                        <h3>Tulay ng Karunungan</h3>
+                        <p>This bridge stands a literal and symbolic path to success.</p>
+                        <a href="#download" class="app-tease-link">View location on map &rarr;</a>
                     </div>
                 </div>
             </div>
-
-            <div class="tree-card reveal" data-category="widespread fruit native">
-                <img src="tree_images/lanzones.jpg" alt="Lanzones Tree" class="tree-image" onerror="this.src='https://via.placeholder.com/400x220/ecfdf5/059669?text=Lanzones+Tree'">
-                <div class="tree-info">
-                    <h3>Lanzones Tree</h3>
-                    <span class="scientific-name">Lansium domesticum</span>
-                    
-                    <a href="#download" class="app-tease-link">View full details & location &rarr;</a>
-                    
-                    <div class="badge-container">
-                        <span class="badge native" data-tooltip="Occurs naturally in this region">Native</span>
-                        <span class="badge fruit" data-tooltip="Produces edible yield">Fruit-Bearing</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
    <section id="download" class="cta-banner">
         <div class="banner-content reveal">
             <h2>Want to see more?</h2>
-            <p>Download the EcoLocate mobile application to explore complete tree profiles, track exact geographical coordinates, and interact with the live map.</p>
-            
+            <p>Enhance your visit with EcoLocate, an educational guide built for accurate tree identification and efficient park navigation. Download the app today to explore detailed tree profiles, monitor real-time coordinates, and interact with the live map.</p>
+            <p class="apk-note">Note: You may need to enable "Install from unknown sources" in your device settings to install the application.</p>
+            <br>
             <div class="store-buttons">
-                <a href="https://drive.google.com/uc?export=download&id=1Ttu2rTzrRDHe0fvYVgvzx5fteeIvPaf8" target="_blank" rel="noopener noreferrer" class="store-btn">
+                <a href="https://drive.google.com/uc?export=download&id=1JAeKjOL49_Z6J5IX85TAFvv0qEu8kZD1" target="_blank" rel="noopener noreferrer" class="store-btn">
                     <i class='bx bxl-android'></i> Download Android APK
                 </a>
             </div>
-            
-            <p class="apk-note">Note: You may need to enable "Install from unknown sources" in your device settings to install the application.</p>
         </div>
     </section>
     
@@ -131,12 +184,50 @@
     </footer>
 
     <script>
-        // Tag Filter Logic
+        // 1. SELECT ELEMENTS
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const switchButtons = document.querySelectorAll('.switch-btn');
         const filterButtons = document.querySelectorAll('.filter-btn');
         const treeCards = document.querySelectorAll('.tree-card');
+        
+        // View Containers
+        const treeView = document.getElementById('tree-view-content');
+        const landmarkView = document.getElementById('landmark-view-content');
+        const viewTitle = document.getElementById('view-title');
+        const viewDesc = document.getElementById('view-desc');
 
+        // 2. VIEW SWITCH LOGIC (Trees vs. Landmarks)
+        switchButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const view = btn.getAttribute('data-view');
+                
+                // UI Update: Active Button State
+                switchButtons.forEach(s => s.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Logic: Toggle Content and Dynamic Text
+                if (view === 'trees') {
+                    treeView.classList.remove('hidden');
+                    landmarkView.classList.add('hidden');
+                    viewTitle.innerText = "Trees";
+                    viewDesc.innerText = "Information sourced directly from the EcoLocate mapping system.";
+                } else {
+                    treeView.classList.add('hidden');
+                    landmarkView.classList.remove('hidden');
+                    viewTitle.innerText = "Landmarks";
+                    viewDesc.innerText = "Key points of interest and navigation markers within the Ecopark.";
+                }
+
+                // Scroll feedback: Ensure user is at the top of the directory
+                document.getElementById('tree-directory').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // 3. TAG FILTER LOGIC (Specific to Trees)
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // UI Update: Active Filter Button
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
                 
@@ -148,7 +239,7 @@
 
                     if (filterValue === 'all' || categories.includes(filterValue)) {
                         card.style.display = 'flex'; 
-                        // Re-trigger animation when filtered
+                        // Re-trigger reveal animation for filtered results
                         card.classList.remove('active');
                         setTimeout(() => card.classList.add('active'), 50);
                     } else {
@@ -159,10 +250,7 @@
             });
         });
 
-        // Dark Mode Toggle Logic
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-
+        // 4. DARK MODE TOGGLE LOGIC
         themeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-theme');
             
@@ -173,19 +261,17 @@
             }
         });
 
-        // Scroll Reveal Animation Logic
+        // 5. SCROLL REVEAL ANIMATION LOGIC
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Only animate once
+                    observer.unobserve(entry.target); // Animate once for performance
                 }
             });
         }, {
-            root: null,
-            threshold: 0.15, // Trigger when 15% of the element is visible
-            rootMargin: "0px"
+            threshold: 0.15 // Trigger when 15% visible
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
